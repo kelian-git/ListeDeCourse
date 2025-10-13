@@ -1,3 +1,8 @@
+
+body {
+    margin: 0;
+}
+
 .welcome-container {
     background: #fffaf0;
     padding: 50px;
@@ -9,7 +14,7 @@
     animation: fadeIn 0.6s ease-in-out;
 }
 
-.promotions{
+.promotions {
     background: #fffaf0;
     padding: 20px;
     margin: 20px auto;
@@ -20,7 +25,7 @@
     animation: fadeIn 0.6s ease-in-out;
 }
 
-.redirect-button{
+.redirect-button {
     width: 30%;
     background: linear-gradient(to right, #005CF0, #ff6b6b);
     color: white;
@@ -37,7 +42,7 @@
     width: 75%;
     margin: 30px auto 20px auto;
     display: flex;
-    justify-content: center; /* Centre horizontalement */
+    justify-content: center;
 }
 
 .logout-button button {
@@ -55,4 +60,33 @@
 .logout-button button:hover {
     background: linear-gradient(to right, #005CF0, #ff6b6b);
     transform: scale(1.05);
+}
+
+/* 📱 Responsive pour téléphone */
+@media (max-width: 600px) {
+    .welcome-container,
+    .promotions {
+        width: 90%; /* prend presque toute la largeur */
+        padding: 20px; /* moins de padding */
+        margin: 10px auto;
+        font-size: 0.95rem;
+    }
+
+    .redirect-button {
+        width: 80%; /* bouton plus large pour pouce */
+        font-size: 16px;
+        padding: 12px;
+        margin-top: 20px;
+    }
+
+    .logout-button {
+        width: 100%;
+        margin: 20px auto;
+    }
+
+    .logout-button button {
+        width: 80%; /* plus grand bouton pour téléphone */
+        font-size: 16px;
+        padding: 12px;
+    }
 }

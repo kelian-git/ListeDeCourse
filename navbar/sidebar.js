@@ -6,8 +6,6 @@ class AppNavbar extends HTMLElement {
     }
 
     connectedCallback() {
-        const path = location.pathname.replace(/\/+$/, "");
-        const isActive = (href) => path.endsWith(href.replace(/\/+$/, ""));
 
         this.shadowRoot.innerHTML = `
       <style>
@@ -15,7 +13,7 @@ class AppNavbar extends HTMLElement {
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         :host { display:block; font-family:"Segoe UI", Roboto, Arial, sans-serif; color:#333; }
-        body { overflow-x: hidden; }
+        body { overflow-x: hidden; margin: 0; padding: 0 }
 
         /* BARRE DU HAUT */
         .topbar {
@@ -121,10 +119,10 @@ class AppNavbar extends HTMLElement {
       <!-- Sidebar gauche -->
       <nav class="sidebar sidebar-left" id="sidebarLeft">
         <button class="close-btn" id="closeLeft" aria-label="Fermer">&times;</button>
-        <img src="../assets/img/logo_4.png" alt="image">
-        <a href="home" class="menu-item ${isActive('home') ? 'active' : ''}">Accueil</a>
-        <a href="shopping" class="menu-item ${isActive('shopping') ? 'active' : ''}">Shopping</a>
-        <a href="paniers" class="menu-item ${isActive('paniers') ? 'active' : ''}">Paniers</a>
+        <img src="/assets/img/logo_4.png" alt="image">
+        <a href="../index.html" class="menu-item">Accueil</a>
+        <a href="shopping/shopping.html" class="menu-item">Shopping</a>
+        <a href="paniers" class="menu-item">Paniers</a>
       </nav>
 
       <!-- Backdrop -->
