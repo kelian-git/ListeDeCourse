@@ -119,9 +119,9 @@ class AppNavbar extends HTMLElement {
       <!-- Sidebar gauche -->
       <nav class="sidebar sidebar-left" id="sidebarLeft">
         <button class="close-btn" id="closeLeft" aria-label="Fermer">&times;</button>
-        <img src="/assets/img/logo_4.png" alt="image">
+        <img src="assets/img/logo_4.png" alt="image">
         <a href="../index.html" class="menu-item">Accueil</a>
-        <a href="shopping/shopping.html" class="menu-item">Shopping</a>
+        <a href="shopping.html" class="menu-item">Shopping</a>
         <a href="paniers" class="menu-item">Paniers</a>
       </nav>
 
