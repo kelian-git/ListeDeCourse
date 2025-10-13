@@ -42,7 +42,7 @@
 
 .logout-button button {
     width: 30%;
-    background: linear-gradient(to right, #ff6b6b, #ffdd57);
+    background: linear-gradient(to right, #005CF0, #ff6b6b);
     color: white;
     border: none;
     padding: 14px;
@@ -53,6 +53,6 @@
 }
 
 .logout-button button:hover {
-    background: linear-gradient(to right, #ffdd57, #ff6b6b);
+    background: linear-gradient(to right, #005CF0, #ff6b6b);
     transform: scale(1.05);
 }
