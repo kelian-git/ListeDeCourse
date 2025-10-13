@@ -4,12 +4,12 @@
   margin: 0;
   padding: 0;
 }
-    .sidebar img {
-      display: block;
-      width: 80%;           /* redimensionne la largeur à 80% du conteneur */
-      max-width: 150px;     /* limite la taille max */
-      margin: 0 auto ;  /* centre l’image et ajoute un espace en bas */
-    }
+.sidebar img {
+  display: block;
+  width: 80%;           /* redimensionne la largeur à 80% du conteneur */
+  max-width: 150px;     /* limite la taille max */
+  margin: 0 auto ;  /* centre l’image et ajoute un espace en bas */
+}
 
 body {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
