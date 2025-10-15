@@ -1,12 +1,12 @@
 // ✅ 1. Create a list in localStorage if it doesn't exist
 const defaultProducts = [
-  { nom: "Tresor Cereale", prix: 3.29 , poids: "1k" },
-  { nom: "Prince Biscuit", prix: 1.99, poids: "300g" },
-  { nom: "Compote de Pomme", prix: 2.99, poids: "1k" },
-  { nom: "Brioche aux pepites de chocolat", prix: 2.49, poids: "500g" },
-  { nom: "Nutella", prix: 5.79, poids: "800g" },
-  { nom: "Croissant", prix: 2.99, poids: "500g" },
-  { nom: "Pain au chocolat", prix: 2.99, poids: "500g" },
+  { name: "Tresor Cereale", price: 3.29 , weight: "1k" },
+  { name: "Prince Biscuit", price: 1.99, weight: "300g" },
+  { name: "Compote de Pomme", price: 2.99, weight: "1k" },
+  { name: "Brioche aux pepites de chocolat", price: 2.49, weight: "500g" },
+  { name: "Nutella", price: 5.79, weight: "800g" },
+  { name: "Croissant", price: 2.99, weight: "500g" },
+  { name: "Pain au chocolat", price: 2.99, weight: "500g" },
 ];
 
 localStorage.setItem("productList", JSON.stringify(defaultProducts));
@@ -22,9 +22,9 @@ container.innerHTML = `
       .map(
         (item, index) => `
       <li>
-        <strong>${item.nom}</strong> <br>
-        Prix : ${item.prix} € <br>
-        Poids : ${item.poids} <br>
+        <strong>${item.name}</strong> <br>
+        price : ${item.price} € <br>
+        weight : ${item.weight} <br>
         <button onclick='addToCart(${JSON.stringify(item)})'>Ajouter au panier</button>
       </li>
     `
