@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="stylesheet" href="panier.css">
+     <script type="module" src="../navbar/sidebar.js"></script>
+  <title>Mon Panier</title>
+</head>
+<body>
+    <app-navbar></app-navbar>
+     <div class="panier-container">
+  <h1>Mon Panier</h1>
+  <ul id="listePanier"></ul>
+  <div id="totalPanier">Total : 0.00 €</div>
+  <button onclick="viderPanier()">Vider le panier</button>
+  <button>Commander</button>
+  <button onclick="window.location.href='../Shopping/shopping.html'">
+  Retour au shopping
+</button>
+  <script src="panier.js"></script>
+  </div>
+</body>
+</html>
