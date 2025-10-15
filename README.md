@@ -28,3 +28,16 @@ Adding a shopping cart and automatic total calculation
 User authentication (login / registration)
 
 Product search and filtering system
+
+The link of the website: 
+https://kelian-git.github.io/ListeDeCourse/
+
+IDE : VS Code
+
+To make a change:
+
+- create a new branch on github
+- git add .
+- git commit -m""
+- git push 
+- send a pull request to the tech lead
