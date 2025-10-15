@@ -1,4 +1,3 @@
-// 📁 Dossier où se trouvent toutes tes images
 const IMAGE_BASE_PATH = "../../assets/img/meat/";
 
 const listeCourses = [
@@ -26,6 +25,7 @@ container.innerHTML = `
       <h2>${item.name}</h2>
       <p><strong>prix :</strong> ${item.price} €</p>
       <p><strong>poids :</strong> ${item.weight}</p>
+      <button onclick='addToCart(${JSON.stringify(item)})'>Ajouter au panier</button>
     </article>
   `).join("")}
 `;
