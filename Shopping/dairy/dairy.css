@@ -29,6 +29,9 @@ button, a{
     font-size: 1.0rem;
     transition: background-color 0.3s;
 }
+button:hover {
+    background-color: #e53935;
+}
 
 .gallery {
     display: grid;
