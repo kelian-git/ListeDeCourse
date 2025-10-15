@@ -1,72 +1,66 @@
-// 🧺 panier.js — gère le panier de l’application
+// 🧺 cart.js — manage the shopping cart
 
-// Charger le panier existant ou créer un panier vide
-let panier = JSON.parse(localStorage.getItem("panier")) || [];
+// Load existing cart or create empty
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Fonction d'affichage du panier dans un conteneur HTML
-function afficherPanier() {
+// Display the cart in HTML container
+function displayCart() {
   const container = document.getElementById("listePanier");
-  if (!container) return; // si la page n’a pas de panier, on arrête
+  if (!container) return; // si la page n’a pas de panier, stop
 
-  if (panier.length === 0) {
-    container.innerHTML = "<li>Le panier est vide </li>";
+  if (cart.length === 0) {
+    container.innerHTML = "<li>Le panier est vide 🛒</li>";
+    document.getElementById("totalPanier").textContent = `Total : 0.00 €`;
     return;
   }
 
-  container.innerHTML = panier
+  container.innerHTML = cart
     .map(
       (item, index) => `
         <li>
           <div>
             <strong>${item.nom}</strong> — ${item.prix} € (${item.poids})
           </div>
-          <button onclick="supprimerDuPanier(${index})" >
-            Supprimer 
+          <button onclick="removeFromCart(${index})">
+            Supprimer
           </button>
         </li>
       `
     )
     .join("");
-    // Calculer le total
-  const total = panier.reduce((acc, item) => acc + parseFloat(item.prix), 0);
+
+  // Calculate total
+  const total = cart.reduce((acc, item) => acc + parseFloat(item.prix), 0);
   document.getElementById("totalPanier").textContent = `Total : ${total.toFixed(2)} €`;
-
 }
 
-
-
-function supprimerDuPanier(index) {
-  // Supprime 1 élément à la position 'index'
-  panier.splice(index, 1);
-
-  // Met à jour le localStorage
-  localStorage.setItem("panier", JSON.stringify(panier));
-
-  // Réaffiche le panier
-  afficherPanier();
+// Remove one product
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  displayCart();
 }
 
-
-// Ajouter un produit
-function ajouterAuPanier(produit) {
-  panier.push(produit);
-  localStorage.setItem("panier", JSON.stringify(panier));
-  afficherPanier();
-  alert(`${produit.nom} a été ajouté au panier 🛍️`);
+// Add a product
+function addToCart(product) {
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  displayCart();
+  alert(`${product.nom} a été ajouté au panier 🛍️`);
 }
 
-// Vider le panier
-function viderPanier() {
+// Empty the cart
+function emptyCart() {
   if (confirm("Voulez-vous vraiment vider le panier ?")) {
-    panier = [];
-    localStorage.setItem("panier", JSON.stringify(panier));
-    afficherPanier();
+    cart = [];
+    localStorage.setItem("cart", JSON.stringify(cart));
+    displayCart();
   }
 }
 
-// Rendre les fonctions disponibles globalement
-window.ajouterAuPanier = ajouterAuPanier;
-window.viderPanier = viderPanier;
+// Make functions global
+window.addToCart = addToCart;
+window.emptyCart = emptyCart;
 
-// Mettre à jour le panier dès le chargement de la page
-window.addEventListener("DOMContentLoaded", afficherPanier);
+// Display cart on page load
+window.addEventListener("DOMContentLoaded", displayCart);
