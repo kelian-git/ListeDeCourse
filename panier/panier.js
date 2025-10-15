@@ -19,7 +19,7 @@ function displayCart() {
       (item, index) => `
         <li>
           <div>
-            <strong>${item.nom}</strong> — ${item.prix} € (${item.poids})
+            <strong>${item.name}</strong> — ${item.price} € (${item.weight})
           </div>
           <button onclick="removeFromCart(${index})">
             Supprimer
@@ -30,7 +30,7 @@ function displayCart() {
     .join("");
 
   // Calculate total
-  const total = cart.reduce((acc, item) => acc + parseFloat(item.prix), 0);
+  const total = cart.reduce((acc, item) => acc + parseFloat(item.price), 0);
   document.getElementById("totalPanier").textContent = `Total : ${total.toFixed(2)} €`;
 }
 
@@ -46,7 +46,7 @@ function addToCart(product) {
   cart.push(product);
   localStorage.setItem("cart", JSON.stringify(cart));
   displayCart();
-  alert(`${product.nom} a été ajouté au panier 🛍️`);
+  alert(`${product.name} a été ajouté au panier 🛍️`);
 }
 
 // Empty the cart

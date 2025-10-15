@@ -120,10 +120,10 @@ class AppNavbar extends HTMLElement {
       <!-- Sidebar gauche -->
       <nav class="sidebar sidebar-left" id="sidebarLeft">
         <button class="close-btn" id="closeLeft" aria-label="Fermer">&times;</button>
-        <img src="/ListeDeCourse/assets/img/logo_4.png" alt="image">
-        <a href="/ListeDeCourse/index.html" class="menu-item">Accueil</a>
-        <a href="/ListeDeCourse/Shopping/shopping.html" class="menu-item">Shopping</a>
-        <a href="paniers" class="menu-item">Paniers</a>
+        <img src="/assets/img/logo_4.png" alt="image">
+        <a href="/index.html" class="menu-item">Accueil</a>
+        <a href="/Shopping/shopping.html" class="menu-item">Shopping</a>
+        <a href="/panier/paniers.html" class="menu-item">Paniers</a>
       </nav>
 
       <!-- Backdrop -->
