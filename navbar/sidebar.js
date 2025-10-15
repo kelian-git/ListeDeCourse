@@ -122,7 +122,7 @@ class AppNavbar extends HTMLElement {
         <button class="close-btn" id="closeLeft" aria-label="Fermer">&times;</button>
         <img src="/ListeDeCourse/assets/img/logo_4.png" alt="image">
         <a href="/ListeDeCourse/index.html" class="menu-item">Accueil</a>
-        <a href="/ListeDeCourse/shopping.html" class="menu-item">Shopping</a>
+        <a href="/ListeDeCourse/Shopping/shopping.html" class="menu-item">Shopping</a>
         <a href="paniers" class="menu-item">Paniers</a>
       </nav>
 
