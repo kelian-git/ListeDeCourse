@@ -9,24 +9,25 @@ class AppNavbar extends HTMLElement {
 
         this.shadowRoot.innerHTML = `
       <style>
-        /* RESET */
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         :host { display:block; font-family:"Segoe UI", Roboto, Arial, sans-serif; color:#333; }
         body { overflow-x: hidden; margin: 0; padding: 0 }
 
-        /* BARRE DU HAUT */
         .topbar {
-          display:flex;
-          align-items:center;
-          justify-content:space-between; /* 👈 Sépare gauche et droite */
-          background-color:#009688;
-          color:#fff;
-          padding:12px 16px;
-          box-shadow:0 2px 5px rgba(0,0,0,.2);
-          position:sticky;
-          top:0;
-          z-index:100;
+          position: fixed;      
+          top: 0;
+          left: 0;
+          right: 0;
+          width: 100%;      
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background-color: #009688;
+          color: #fff;
+          padding: 12px 16px;
+          box-shadow: 0 2px 5px rgba(0,0,0,.2);
+          z-index: 100;
         }
         .title { font-size:1.5rem; font-weight:600; }
         .item {
@@ -119,9 +120,9 @@ class AppNavbar extends HTMLElement {
       <!-- Sidebar gauche -->
       <nav class="sidebar sidebar-left" id="sidebarLeft">
         <button class="close-btn" id="closeLeft" aria-label="Fermer">&times;</button>
-        <img src="assets/img/logo_4.png" alt="image">
-        <a href="index.html" class="menu-item">Accueil</a>
-        <a href="shopping.html" class="menu-item">Shopping</a>
+        <img src="/ListeDeCourse/assets/img/logo_4.png" alt="image">
+        <a href="/ListeDeCourse/index.html" class="menu-item">Accueil</a>
+        <a href="/ListeDeCourse/shopping.html" class="menu-item">Shopping</a>
         <a href="paniers" class="menu-item">Paniers</a>
       </nav>
 
@@ -140,20 +141,30 @@ class AppNavbar extends HTMLElement {
     `;
 
         const sidebarLeft = this.shadowRoot.getElementById('sidebarLeft');
-        const openLeftBtn  = this.shadowRoot.getElementById('openLeft');
+        const openLeftBtn = this.shadowRoot.getElementById('openLeft');
         const closeLeftBtn = this.shadowRoot.getElementById('closeLeft');
-        const backdrop     = this.shadowRoot.getElementById('backdrop');
+        const backdrop = this.shadowRoot.getElementById('backdrop');
 
-        const openLeft  = () => { sidebarLeft.classList.add('open');  backdrop.classList.add('show'); };
-        const closeLeft = () => { sidebarLeft.classList.remove('open'); backdrop.classList.remove('show'); };
-        const closeAll  = () => { closeLeft(); };
+        const openLeft = () => {
+            sidebarLeft.classList.add('open');
+            backdrop.classList.add('show');
+        };
+        const closeLeft = () => {
+            sidebarLeft.classList.remove('open');
+            backdrop.classList.remove('show');
+        };
+        const closeAll = () => {
+            closeLeft();
+        };
 
         openLeftBtn.addEventListener('click', openLeft);
         closeLeftBtn.addEventListener('click', closeLeft);
         backdrop.addEventListener('click', closeAll);
 
-        this._onKeydown = (e) => { if (e.key === 'Escape') closeAll(); };
-        window.addEventListener('keydown', this._onKeydown, { passive:true });
+        this._onKeydown = (e) => {
+            if (e.key === 'Escape') closeAll();
+        };
+        window.addEventListener('keydown', this._onKeydown, {passive: true});
     }
 
     disconnectedCallback() {
