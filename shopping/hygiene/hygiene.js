@@ -1,7 +1,6 @@
-export function initPage(root) {
-    const IMAGE_BASE_PATH = "../../assets/img/hygiene/";
+    export const IMAGE_BASE_PATH = "../../assets/img/hygiene/";
 
-    const listeCourses = [
+    export const listeCourses4 = [
         { name: "Gel Douche", price: 4.50, weight: "250ml", image: "gel-douche.jpg" },
         { name: "Shampoing", price: 5.20, weight: "300ml", image: "shampoing.jpg" },
         { name: "Dentifrice", price: 3.00, weight: "75ml", image: "dentifrice.jpg" },
@@ -14,11 +13,12 @@ export function initPage(root) {
         { name: "Brosse à Dents", price: 3.50, weight: "1 pièce", image: "brosse-a-dents.jpg" },
         { name: "Crème Solaire", price: 12.00, weight: "150ml", image: "creme-solaire.jpg" }
     ];
-
+    
+    export function initPage(root) {
     const container = root.querySelector("#liste");
     if (!container) return;
 
-    container.innerHTML = listeCourses.map((item, index) => `
+    container.innerHTML = listeCourses4.map((item, index) => `
         <article class="gallery-item">
             <img src="${IMAGE_BASE_PATH + item.image}" alt="${item.name}">
             <h2>${item.name}</h2>
@@ -29,6 +29,6 @@ export function initPage(root) {
     `).join("");
 
     container.querySelectorAll("button").forEach((btn, index) => {
-        btn.addEventListener("click", () => addToCart(listeCourses[index]));
+        btn.addEventListener("click", () => addToCart(listeCourses4[index]));
     });
 }

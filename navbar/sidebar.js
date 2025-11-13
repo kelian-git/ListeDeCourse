@@ -1,9 +1,12 @@
 // /navbar/navbar.js
+import { initSearch } from '../index.js';
+
 class AppNavbar extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
     }
+
 
     connectedCallback() {
 
@@ -167,6 +170,68 @@ class AppNavbar extends HTMLElement {
           .sidebar { width:80%; }
           .title { font-size:1.2rem; }
         }
+
+        .topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  ...
+}
+
+.center-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-container {
+  position: relative;
+  width: 300px;
+  margin: 0 auto; /* centre dans la navbar */
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  transition: box-shadow 0.2s;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 8px rgba(0, 150, 136, 0.8);
+}
+
+.suggestions-box {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+}
+
+.suggestion-item {
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 0.95rem;
+  color:#009688;
+}
+
+.suggestion-item:hover {
+  background-color: #009688;
+  color: #fff;
+}
+
+        
       </style>
 
       <!-- Sidebar gauche -->
@@ -188,11 +253,17 @@ class AppNavbar extends HTMLElement {
         <div class="left-section">
           <button class="menu-btn left" id="openLeft" aria-label="Ouvrir le menu gauche">&#9776;</button>
         </div>
+         <div class="center-section" id="searchBarContainer">
+        <!-- La search bar sera injectée ici -->
+        </div>
         <div class="right-section">
           <span class="item" data-page="connexion">Connexion</span>
         </div>
       </header>
     `;
+
+     const searchContainer = this.shadowRoot.getElementById('searchBarContainer');
+      initSearch(searchContainer);
 
         const sidebarLeft = this.shadowRoot.getElementById('sidebarLeft');
         const openLeftBtn = this.shadowRoot.getElementById('openLeft');

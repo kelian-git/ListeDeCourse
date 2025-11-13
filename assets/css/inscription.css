@@ -1,0 +1,108 @@
+/* -------- Style global -------- */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+ 
+}
+
+/* -------- Conteneur principal du formulaire -------- */
+form#inscriptionForm {
+  background: #fff;
+  padding: 110px 60px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 420px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+form#inscriptionForm:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* -------- Titre -------- */
+form#inscriptionForm h2 {
+  text-align: center;
+  color: #00695c;
+  margin-bottom: 25px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* -------- Champs du formulaire -------- */
+form#inscriptionForm label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+form#inscriptionForm input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+form#inscriptionForm input:focus {
+  border-color: #009688;
+  box-shadow: 0 0 5px rgba(0, 150, 136, 0.3);
+}
+
+/* -------- Aide sous les champs -------- */
+form#inscriptionForm small {
+  display: block;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* -------- Espacement des champs -------- */
+form#inscriptionForm div {
+  margin-bottom: 25px;
+}
+
+/* -------- Bouton -------- */
+form#inscriptionForm button {
+  width: 100%;
+  padding: 14px 0;
+  background-color: #009688;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+form#inscriptionForm button:hover:not(:disabled) {
+  background-color: #00796b;
+  transform: translateY(-2px);
+}
+
+form#inscriptionForm button:disabled {
+  background-color: #b2dfdb;
+  cursor: not-allowed;
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 480px) {
+  form#inscriptionForm {
+    padding: 30px 50px;
+    max-width: 60%;
+  }
+
+  form#inscriptionForm h2 {
+    font-size: 1.4rem;
+  }
+}

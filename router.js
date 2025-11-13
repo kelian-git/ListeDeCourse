@@ -46,9 +46,9 @@ async function navigateTo(page) {
             jsPath = "panier/panier.js";
             break;
         case "connexion":
-            htmlPath = "connexion/connexion.html";
-            cssPath = "assets/css/connexion.css";
-            jsPath = "connexion/connexion.js";
+            htmlPath = "inscription/inscription.html";
+            cssPath = "assets/css/inscription.css";
+            jsPath = "inscription/inscription.js";
             break;
         case "meat":
             htmlPath = "shopping/meat/meat.html";

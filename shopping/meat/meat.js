@@ -1,7 +1,6 @@
-export function initPage(root) {
-    const IMAGE_BASE_PATH = "../../assets/img/meat/";
+    export const IMAGE_BASE_PATH = "../../assets/img/meat/";
 
-    const listeCourses = [
+    export const listeCourses5 = [
         { name: "Poulet", price: 6.50, weight: "1kg", image: "poulet.png" },
         { name: "Viande Haché", price: 7.20, weight: "500g", image: "viande-hache.jpg" },
         { name: "Boulette", price: 5.80, weight: "400g", image: "boulette.jpg" },
@@ -15,12 +14,12 @@ export function initPage(root) {
         { name: "Nuggets", price: 5.20, weight: "350g", image: "nuggets.jpg" }
     ];
 
-    localStorage.setItem("listeCourses", JSON.stringify(listeCourses));
-
+    localStorage.setItem("listeCourses5", JSON.stringify(listeCourses5));
+    export function initPage(root) {
     const container = root.querySelector("#liste") || document.getElementById("liste");
     if (!container) return;
 
-    container.innerHTML = listeCourses
+    container.innerHTML = listeCourses5
         .map((item, index) => `
         <article class="gallery-item">
           <img src="${IMAGE_BASE_PATH + item.image}" alt="${item.name}">
@@ -35,7 +34,7 @@ export function initPage(root) {
     container.querySelectorAll("button[data-index]").forEach(btn => {
         btn.addEventListener("click", () => {
             const index = Number(btn.dataset.index);
-            const produit = listeCourses[index];
+            const produit = listeCourses5[index];
             if (typeof window.addToCart === "function") {
                 window.addToCart(produit);
             }

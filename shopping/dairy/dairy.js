@@ -1,7 +1,6 @@
-export function initPage(root) {
-    const IMAGE_BASE_PATH = "../../assets/img/dairy/";
+    export const IMAGE_BASE_PATH = "../../assets/img/dairy/";
 
-    const listeCourses = [
+    export const listeCourses2 = [
         { name: "Lait Demi-Écrémé", price: 1.20, weight: "1L", image: "lait-demi-ecreme.jpg" },
         { name: "Beurre Doux", price: 2.50, weight: "250g", image: "beurre-doux.jpg" },
         { name: "Yaourt Nature", price: 3.80, weight: "4 x 125g", image: "yaourt-nature.jpg" },
@@ -15,10 +14,11 @@ export function initPage(root) {
         { name: "Fromage Blanc", price: 2.90, weight: "500g", image: "fromage-blanc.jpg" }
     ];
 
+    export function initPage(root) {
     const container = root.querySelector("#liste");
     if (!container) return;
 
-    container.innerHTML = listeCourses.map((item, index) => `
+    container.innerHTML = listeCourses2.map((item, index) => `
         <article class="gallery-item">
             <img src="${IMAGE_BASE_PATH + item.image}" alt="${item.name}">
             <h2>${item.name}</h2>
@@ -29,6 +29,6 @@ export function initPage(root) {
     `).join("");
 
     container.querySelectorAll("button").forEach((btn, index) => {
-        btn.addEventListener("click", () => addToCart(listeCourses[index]));
+        btn.addEventListener("click", () => addToCart(listeCourses2[index]));
     });
 }
