@@ -46,7 +46,6 @@ async function navigateTo(page) {
             jsPath = "panier/panier.js";
             break;
         case "connexion":
-            htmlPath = "inscription/inscription.html";
             cssPath = "assets/css/inscription.css";
             jsPath = "inscription/inscription.js";
             break;
