@@ -1,5 +1,5 @@
 // /navbar/navbar.js
-import { initSearch } from '../index.js';
+import { initSearch } from './index.js';
 
 class AppNavbar extends HTMLElement {
     constructor() {

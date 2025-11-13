@@ -1,11 +1,11 @@
-import { listeCourses } from '/shopping/fruit-vegetable/fruit-vegetable.js';
-import { listeCourses2 } from '/shopping/dairy/dairy.js';
-import { listeCourses3 } from '/shopping/boisson/boisson.js';
-import { listeCourses4 } from '/shopping/hygiene/hygiene.js';
-import { listeCourses5 } from '/shopping/meat/meat.js';
-import { listeCourses6 } from '/shopping/petitdejeuner/petitdejeuner.js';
+import { listeCourses } from './fruit-vegetable.js';
+import { listeCourses2 } from './dairy.js';
+import { listeCourses3 } from './boisson.js';
+import { listeCourses4 } from './hygiene.js';
+import { listeCourses5 } from './meat.js';
+import { listeCourses6 } from './petitdejeuner.js';
 
-import { addToCart } from './panier/panier.js';
+import { addToCart } from './panier.js';
 
 // Fusionner tous les produits
 const allProducts = [...listeCourses,...listeCourses2,...listeCourses3,...listeCourses4,...listeCourses5,...listeCourses6];
