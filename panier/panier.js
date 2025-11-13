@@ -4,7 +4,7 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // Display the cart in HTML container
-function displayCart() {
+export function displayCart() {
   const container = document.getElementById("listePanier");
   if (!container) return; // si la page n’a pas de panier, stop
 
@@ -35,14 +35,14 @@ function displayCart() {
 }
 
 // Remove one product
-function removeFromCart(index) {
+export function removeFromCart(index) {
   cart.splice(index, 1);
   localStorage.setItem("cart", JSON.stringify(cart));
   displayCart();
 }
 
 // Add a product
-function addToCart(product) {
+export function addToCart(product) {
   cart.push(product);
   localStorage.setItem("cart", JSON.stringify(cart));
   displayCart();
@@ -50,7 +50,7 @@ function addToCart(product) {
 }
 
 // Empty the cart
-function emptyCart() {
+export function emptyCart() {
   if (confirm("Voulez-vous vraiment vider le panier ?")) {
     cart = [];
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -61,6 +61,7 @@ function emptyCart() {
 // Make functions global
 window.addToCart = addToCart;
 window.emptyCart = emptyCart;
+window.removeFromCart = removeFromCart
 
 // Display cart on page load
 window.addEventListener("DOMContentLoaded", displayCart);

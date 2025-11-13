@@ -2,6 +2,12 @@
 body {
     margin: 0;
     padding-top: 80px;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column;
 }
 
 .welcome-container {
@@ -63,6 +69,143 @@ body {
     transform: scale(1.05);
 }
 
+
+form {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+form:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+form h2 {
+  text-align: center;
+  margin-bottom: 1.8rem;
+  color: #333;
+  font-weight: 600;
+}
+
+label {
+  font-weight: 500;
+  display: block;
+  margin-top: 1rem;
+  color: #222;
+}
+
+input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  margin-top: 0.3rem;
+  border: 1.8px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  outline: none;
+}
+
+input:focus {
+  border-color: #2575fc;
+  box-shadow: 0 0 5px rgba(37, 117, 252, 0.3);
+}
+
+input:valid {
+  border-color: #28a745;
+}
+
+input:invalid:focus {
+  border-color: #dc3545;
+}
+
+small {
+  color: #666;
+  font-size: 0.8rem;
+  display: block;
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  background-color: #2575fc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover:not(:disabled) {
+  background-color: #1e63d0;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+/* Barre de recherche */
+.search-container {
+  width: 50%;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 2px solid #ccc;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.search-input:focus {
+  border-color: #005CF0;
+  box-shadow: 0 4px 12px rgba(0,92,240,0.3);
+}
+
+/* Icône de loupe (optionnel) */
+.search-container::before {
+  content: "🔍";
+  position: absolute;
+  margin-left: 15px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .search-container {
+    width: 80%;
+  }
+  .search-input {
+    padding: 12px 15px;
+    font-size: 0.95rem;
+  }
+}
+
+
+/* 📱 Responsive */
+@media (max-width: 500px) {
+  form {
+    padding: 1.5rem;
+    width: 90%;
+  }
+}
+
+
 /* 📱 Responsive pour téléphone */
 @media (max-width: 600px) {
     .welcome-container,
@@ -90,4 +233,5 @@ body {
         font-size: 16px;
         padding: 12px;
     }
+
 }

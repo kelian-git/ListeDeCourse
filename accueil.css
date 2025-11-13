@@ -1,0 +1,39 @@
+.search-container {
+  width: 50%;
+  margin: 20px auto;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 2px solid #ccc;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #005CF0;
+}
+
+.suggestions-box {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.suggestion-item {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background: #f0f0f0;
+}

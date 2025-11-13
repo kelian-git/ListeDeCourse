@@ -123,7 +123,7 @@ class AppNavbar extends HTMLElement {
         <img src="/assets/img/logo_4.png" alt="image">
         <a href="/index.html" class="menu-item">Accueil</a>
         <a href="/Shopping/shopping.html" class="menu-item">Shopping</a>
-        <a href="/panier/paniers.html" class="menu-item">Paniers</a>
+        <a href="/panier/panier.html" class="menu-item">Paniers</a>
       </nav>
 
       <!-- Backdrop -->

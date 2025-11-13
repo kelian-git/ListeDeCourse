@@ -1,6 +1,6 @@
 const IMAGE_BASE_PATH = "../../assets/img/fruit-vegetable/";
 
-const listeCourses = [
+export const listeCourses = [
     { name: "Pommes", price: 2.80, weight: "1kg", image: "pommes.jpg" },
     { name: "Bananes", price: 2.20, weight: "1kg", image: "bananes.jpg" },
     { name: "Oranges", price: 3.10, weight: "1kg", image: "oranges.jpg" },
@@ -16,16 +16,20 @@ const listeCourses = [
 
 localStorage.setItem("listeCourses", JSON.stringify(listeCourses));
 
-const container = document.getElementById("liste");
+// ATTENDRE QUE LE DOM SOIT CHARGÉ
+window.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("liste");
+    if (!container) return;
 
-container.innerHTML = `
-  ${listeCourses.map(item => `
-    <article class="gallery-item">
-      <img src="${IMAGE_BASE_PATH + item.image}" alt="${item.name}">
-      <h2>${item.name}</h2>
-      <p><strong>Prix :</strong> ${item.price} €</p>
-      <p><strong>Poids :</strong> ${item.weight}</p>
-      <button onclick='addToCart(${JSON.stringify(item)})'>Ajouter au panier</button>
-    </article>
-  `).join("")}
-`;
+    container.innerHTML = `
+      ${listeCourses.map(item => `
+        <article class="gallery-item">
+          <img src="${IMAGE_BASE_PATH + item.image}" alt="${item.name}">
+          <h2>${item.name}</h2>
+          <p><strong>Prix :</strong> ${item.price} €</p>
+          <p><strong>Poids :</strong> ${item.weight}</p>
+          <button onclick='addToCart(${JSON.stringify(item)})'>Ajouter au panier</button>
+        </article>
+      `).join("")}
+    `;
+});
