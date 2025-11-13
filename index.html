@@ -1,28 +1,59 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="index.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Liste de courses</title>
+
+    <link href="assets/css/main.css" rel="stylesheet">
     <script type="module" src="navbar/sidebar.js"></script>
+    <script type="module" src="router.js"></script>
+    <script type="module" src="shopping/boisson/boisson.js"></script>
+    <script type="module" src="shopping/meat/meat.js"></script>
+
+
 </head>
 <body>
-<app-navbar>
-</app-navbar>
-<div class="welcome-container">
-    <h1>Bienvenue dans la liste de course</h1>
-    <h3>Bonjour, Utilisateur</h3>
-    <p>Accédez rapidement à vos courses.</p>
-    <button class="redirect-button">Accéder a la liste des courses</button>
-</div>
-<div class="promotions">
-    <h2>Voici les promotions du moment</h2>
-</div>
 
-<div class="logout-button">
-    <button>Se déconnecter</button>
-</div>
+<app-navbar></app-navbar>
+
+<main id="app">
+    <div class="welcome-container">
+        <h1>Bienvenue dans la liste de course</h1>
+        <h3>Bonjour, Utilisateur</h3>
+        <p>Accédez rapidement à vos courses.</p>
+        <button class="redirect-button">Accéder à la liste des courses</button>
+    </div>
+    <div class="promotions">
+        <h2>Voici les promotions du moment</h2>
+    </div>
+
+    <div class="logout-button">
+        <button>Se déconnecter</button>
+    </div>
+    <button id="btnPanier" data-page="paniers" class="panier-btn">
+  <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="Panier" />
+</button>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.querySelector('.redirect-button');
+        if (btn) {
+            btn.addEventListener('click', () => {
+                window.dispatchEvent(new CustomEvent("app:navigate", {
+                    detail: { page: "shopping" }
+                }));
+            });
+        }
+    });
+</script>
+
+<noscript>
+    <p style="padding:1rem;color:red;">
+        Cette application nécessite JavaScript pour fonctionner.
+    </p>
+</noscript>
 
 </body>
 </html>

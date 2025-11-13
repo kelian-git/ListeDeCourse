@@ -11,8 +11,17 @@ class AppNavbar extends HTMLElement {
       <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        :host { display:block; font-family:"Segoe UI", Roboto, Arial, sans-serif; color:#333; }
-        body { overflow-x: hidden; margin: 0; padding: 0 }
+        :host { 
+          display:block; 
+          font-family:"Segoe UI", Roboto, Arial, sans-serif; 
+          color:#333; 
+        }
+
+        body { 
+          overflow-x: hidden; 
+          margin: 0; 
+          padding: 0 
+        }
 
         .topbar {
           position: fixed;      
@@ -29,7 +38,12 @@ class AppNavbar extends HTMLElement {
           box-shadow: 0 2px 5px rgba(0,0,0,.2);
           z-index: 100;
         }
-        .title { font-size:1.5rem; font-weight:600; }
+
+        .title { 
+          font-size:1.5rem; 
+          font-weight:600; 
+        }
+
         .item {
           display:flex;
           align-items:center;
@@ -39,7 +53,9 @@ class AppNavbar extends HTMLElement {
           font-size:1.3rem;
           border-radius:4px;
           transition: background-color .2s;
+          cursor: pointer;
         }
+
         .item:hover {
           background-color:rgba(255,255,255,0.2);
         }
@@ -53,13 +69,17 @@ class AppNavbar extends HTMLElement {
           cursor:pointer;
           transition:transform .2s;
         }
-        .menu-btn:hover { transform:scale(1.1); }
+        .menu-btn:hover { 
+          transform:scale(1.1); 
+        }
 
         /* SIDEBAR */
         .sidebar {
           position:fixed;
-          top:0; left:0;
-          width:260px; height:100%;
+          top:0; 
+          left:0;
+          width:260px; 
+          height:100%;
           background:#fff;
           box-shadow:0 0 15px rgba(0,0,0,.2);
           transform:translateX(-100%);
@@ -68,9 +88,23 @@ class AppNavbar extends HTMLElement {
           z-index:300;
           overflow-y:auto;
         }
-        .sidebar-right { left:auto; right:0; transform:translateX(100%); }
-        .sidebar.open { transform:translateX(0); }
-        .sidebar img { display:block; width:80%; max-width:150px; margin:0 auto; }
+
+        .sidebar-right { 
+          left:auto; 
+          right:0; 
+          transform:translateX(100%); 
+        }
+
+        .sidebar.open { 
+          transform:translateX(0); 
+        }
+
+        .sidebar img { 
+          display:block; 
+          width:80%; 
+          max-width:150px; 
+          margin:0 auto; 
+        }
 
         /* Liens */
         .menu-item {
@@ -81,14 +115,25 @@ class AppNavbar extends HTMLElement {
           font-size:1rem;
           border-bottom:1px solid #eee;
           transition:background-color .2s, color .2s;
+          cursor: pointer;
         }
-        .menu-item:hover { background-color:#009688; color:#fff; }
-        .menu-item.active { background:#e0f2f1; color:#00695c; font-weight:600; }
+
+        .menu-item:hover { 
+          background-color:#009688; 
+          color:#fff; 
+        }
+
+        .menu-item.active { 
+          background:#e0f2f1; 
+          color:#00695c; 
+          font-weight:600; 
+        }
 
         /* Fermer */
         .close-btn {
           position:absolute;
-          top:10px; right:15px;
+          top:10px; 
+          right:15px;
           background:none;
           border:none;
           font-size:2rem;
@@ -96,7 +141,10 @@ class AppNavbar extends HTMLElement {
           cursor:pointer;
           transition:color .2s;
         }
-        .close-btn:hover { color:#009688; }
+
+        .close-btn:hover { 
+          color:#009688; 
+        }
 
         /* Backdrop */
         .backdrop {
@@ -108,7 +156,11 @@ class AppNavbar extends HTMLElement {
           transition:opacity .2s;
           z-index:200;
         }
-        .backdrop.show { opacity:1; pointer-events:auto; }
+
+        .backdrop.show { 
+          opacity:1; 
+          pointer-events:auto; 
+        }
 
         /* Responsive */
         @media (max-width: 600px) {
@@ -121,9 +173,11 @@ class AppNavbar extends HTMLElement {
       <nav class="sidebar sidebar-left" id="sidebarLeft">
         <button class="close-btn" id="closeLeft" aria-label="Fermer">&times;</button>
         <img src="/assets/img/logo_4.png" alt="image">
-        <a href="/index.html" class="menu-item">Accueil</a>
-        <a href="/Shopping/shopping.html" class="menu-item">Shopping</a>
-        <a href="/panier/paniers.html" class="menu-item">Paniers</a>
+
+        <!-- IMPORTANT : liens SPA avec data-page -->
+        <a class="menu-item" data-page="accueil">Accueil</a>
+        <a class="menu-item" data-page="shopping">Shopping</a>
+        <a class="menu-item" data-page="paniers">Paniers</a>
       </nav>
 
       <!-- Backdrop -->
@@ -135,7 +189,7 @@ class AppNavbar extends HTMLElement {
           <button class="menu-btn left" id="openLeft" aria-label="Ouvrir le menu gauche">&#9776;</button>
         </div>
         <div class="right-section">
-          <a href="connexion" class="item">Connexion</a>
+          <span class="item" data-page="connexion">Connexion</span>
         </div>
       </header>
     `;
@@ -149,10 +203,12 @@ class AppNavbar extends HTMLElement {
             sidebarLeft.classList.add('open');
             backdrop.classList.add('show');
         };
+
         const closeLeft = () => {
             sidebarLeft.classList.remove('open');
             backdrop.classList.remove('show');
         };
+
         const closeAll = () => {
             closeLeft();
         };
@@ -161,10 +217,29 @@ class AppNavbar extends HTMLElement {
         closeLeftBtn.addEventListener('click', closeLeft);
         backdrop.addEventListener('click', closeAll);
 
+        // --- Navigation SPA : intercepter les clics et émettre "app:navigate" ---
+        this.shadowRoot.addEventListener('click', (e) => {
+            const target = e.target.closest('[data-page]');
+            if (!target) return;
+
+            e.preventDefault();
+
+            const page = target.dataset.page;
+
+            // Event global vu par router.js
+            window.dispatchEvent(new CustomEvent('app:navigate', {
+                detail: { page }
+            }));
+
+            // On ferme le menu si on est sur mobile
+            closeAll();
+        });
+
+        // Gestion de la touche Echap
         this._onKeydown = (e) => {
             if (e.key === 'Escape') closeAll();
         };
-        window.addEventListener('keydown', this._onKeydown, {passive: true});
+        window.addEventListener('keydown', this._onKeydown, { passive: true });
     }
 
     disconnectedCallback() {
