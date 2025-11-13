@@ -9,16 +9,21 @@
 </head>
 <body>
     <app-navbar></app-navbar>
-     <div class="panier-container">
+<div class="panier-container">
   <h1>Mon Panier</h1>
+
   <ul id="listePanier"></ul>
   <div id="totalPanier">Total : 0.00 €</div>
-  <button onclick="emptyCart()">Vider le panier</button>
-  <button>Commander</button>
-  <button onclick="window.location.href='../Shopping/shopping.html'">
-  Retour au shopping
-</button>
-  <script src="panier.js"></script>
+
+  <div class="panier-actions">
+    <button type="button" data-action="empty">Vider le panier</button>
+    <button type="button" data-action="order">Commander</button>
+
+    <button type="button" data-page="shopping">
+      Retour au shopping
+    </button>
   </div>
+</div>
+
 </body>
 </html>

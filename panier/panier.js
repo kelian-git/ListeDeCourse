@@ -1,27 +1,31 @@
-// 🧺 cart.js — manage the shopping cart
-
-// Load existing cart or create empty
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let lastRoot = null;
 
-// Display the cart in HTML container
-function displayCart() {
-  const container = document.getElementById("listePanier");
-  if (!container) return; // si la page n’a pas de panier, stop
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function renderCart(root) {
+  if (!root) return;
+
+  const list = root.querySelector("#listePanier");
+  const totalEl = root.querySelector("#totalPanier");
+  if (!list || !totalEl) return;
 
   if (cart.length === 0) {
-    container.innerHTML = "<li>Le panier est vide 🛒</li>";
-    document.getElementById("totalPanier").textContent = `Total : 0.00 €`;
+    list.innerHTML = "<li>Le panier est vide 🛒</li>";
+    totalEl.textContent = "Total : 0.00 €";
     return;
   }
 
-  container.innerHTML = cart
+  list.innerHTML = cart
     .map(
       (item, index) => `
         <li>
           <div>
             <strong>${item.name}</strong> — ${item.price} € (${item.weight})
           </div>
-          <button onclick="removeFromCart(${index})">
+          <button data-index="${index}" data-action="remove">
             Supprimer
           </button>
         </li>
@@ -29,38 +33,61 @@ function displayCart() {
     )
     .join("");
 
-  // Calculate total
   const total = cart.reduce((acc, item) => acc + parseFloat(item.price), 0);
-  document.getElementById("totalPanier").textContent = `Total : ${total.toFixed(2)} €`;
+  totalEl.textContent = `Total : ${total.toFixed(2)} €`;
 }
 
-// Remove one product
-function removeFromCart(index) {
-  cart.splice(index, 1);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  displayCart();
-}
-
-// Add a product
-function addToCart(product) {
+export function addToCart(product) {
   cart.push(product);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  displayCart();
+  saveCart();
+  if (lastRoot) renderCart(lastRoot);
   alert(`${product.name} a été ajouté au panier 🛍️`);
 }
 
-// Empty the cart
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  saveCart();
+  if (lastRoot) renderCart(lastRoot);
+}
+
 function emptyCart() {
   if (confirm("Voulez-vous vraiment vider le panier ?")) {
     cart = [];
-    localStorage.setItem("cart", JSON.stringify(cart));
-    displayCart();
+    saveCart();
+    if (lastRoot) renderCart(lastRoot);
   }
 }
 
-// Make functions global
+export function initPage(root) {
+  lastRoot = root;
+  renderCart(root);
+
+  const list = root.querySelector("#listePanier");
+  if (list) {
+    list.addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-action='remove']");
+      if (!btn) return;
+      const index = Number(btn.dataset.index);
+      removeFromCart(index);
+    });
+  }
+
+  const emptyBtn = root.querySelector("button[data-action='empty']");
+  if (emptyBtn) {
+    emptyBtn.addEventListener("click", emptyCart);
+  }
+
+  const orderBtn = root.querySelector("button[data-action='order']");
+  if (orderBtn) {
+    orderBtn.addEventListener("click", () => {
+      if (cart.length === 0) {
+        alert("Votre panier est vide.");
+      } else {
+        alert("Commande en cours de traitement…");
+      }
+    });
+  }
+}
+
 window.addToCart = addToCart;
 window.emptyCart = emptyCart;
-
-// Display cart on page load
-window.addEventListener("DOMContentLoaded", displayCart);
