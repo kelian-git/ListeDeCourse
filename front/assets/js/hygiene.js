@@ -1,4 +1,4 @@
-    export const IMAGE_BASE_PATH = "../../assets/img/hygiene/";
+    export const IMAGE_BASE_PATH = "assets/img/hygiene/";
 
     export const listeCourses4 = [
         { name: "Gel Douche", price: 4.50, weight: "250ml", image: "gel-douche.jpg" },

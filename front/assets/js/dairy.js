@@ -1,4 +1,4 @@
-    export const IMAGE_BASE_PATH = "../../assets/img/dairy/";
+    export const IMAGE_BASE_PATH = "assets/img/dairy/";
 
     export const listeCourses2 = [
         { name: "Lait Demi-Écrémé", price: 1.20, weight: "1L", image: "lait-demi-ecreme.jpg" },
