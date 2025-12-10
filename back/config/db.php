@@ -1,13 +1,15 @@
 <?php
-require_once ('../parameters/config.php');
+require_once __DIR__.'/../parameters/config.php';
 
 // Connexion à MySQL
-$conn = new mysqli(HOST, USER, PASSWORD, DATABASE);
+ $dsn = sprintf( 'mysql:dbname=%s;host=%s', DATABASE, HOST );
+ 
+ echo $dsn;
+ try {
+     $conn = new PDO( $dsn, USER, PASSWORD);
+     echo "Connexion réussie à la base de données !";
+ } catch(Exception $e) {
+     die("Connexion échouée : " . $e->getMessage());
 
-// Vérification de la connexion
-if ($conn->connect_error) {
-    die("Connexion échouée : " . $conn->connect_error);
-}
+ }
 
-// Pour les tests
-echo "Connexion réussie à la base de données !";

@@ -2,10 +2,18 @@
 
 require_once '../repositories/UserRepository.php';
 
-var_dump($_POST);
-$data[] = $_POST['firstname'];
+
+$data = [
+    $_POST['firstname'],
+    $_POST['lastname'],
+    $_POST['email'],
+    $_POST['password'],
+    $_POST['phone']
+];
+
 $userRepository = new UserRepository();
 $result = $userRepository->save($data);
+
 if($result) {
     echo 'OK';
 } else {

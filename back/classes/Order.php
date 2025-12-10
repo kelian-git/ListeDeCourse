@@ -1,6 +1,6 @@
 <?php
 
-class Commande {
+class Order {
     private int $id;
     private DateTime $createdAt;
     private int $idUser;
