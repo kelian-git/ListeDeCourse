@@ -1,0 +1,99 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+form#connexionForm {
+  background: #fff;
+  padding: 70px 80px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 380px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+form#connexionForm:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+form#connexionForm h2 {
+  text-align: center;
+  color: #00695c;
+  margin-bottom: 25px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+form#connexionForm label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+form#connexionForm input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+form#connexionForm input:focus {
+  border-color: #009688;
+  box-shadow: 0 0 5px rgba(0, 150, 136, 0.3);
+}
+
+form#connexionForm small {
+  display: block;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+form#connexionForm div {
+  margin-bottom: 25px;
+}
+
+form#connexionForm button {
+  width: 100%;
+  padding: 14px 0;
+  background-color: #009688;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+form#connexionForm button:hover:not(:disabled) {
+  background-color: #00796b;
+  transform: translateY(-2px);
+}
+
+form#connexionForm button:disabled {
+  background-color: #b2dfdb;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  form#connexionForm {
+    padding: 30px 20px;
+    max-width: 90%;
+  }
+
+  form#connexionForm h2 {
+    font-size: 1.2rem;
+  }
+}

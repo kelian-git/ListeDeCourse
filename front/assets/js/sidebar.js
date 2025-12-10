@@ -256,8 +256,9 @@ class AppNavbar extends HTMLElement {
          <div class="center-section" id="searchBarContainer">
         <!-- La search bar sera injectée ici -->
         </div>
-        <div class="right-section">
+        <div class="right-section" style="display: flex; gap: 12px;">
           <span class="item" data-page="connexion">Connexion</span>
+          <span class="item" data-page="inscription">Inscription</span>
         </div>
       </header>
     `;

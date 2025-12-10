@@ -1,9 +1,8 @@
 import { createField } from './function.js';
 
 export function initPage(root) {
-  root.innerHTML = ""; // Efface le contenu précédent
+  root.innerHTML = "";
 
-  // Création du formulaire
   const form = document.createElement('form');
   form.id = "inscriptionForm";
 
@@ -11,7 +10,6 @@ export function initPage(root) {
   title.textContent = "Inscription";
   form.appendChild(title);
 
-  // Champs
   const nom = createField(form, 'nom', 'Nom', 'text', 'Entrez votre nom de famille.');
   const prenom = createField(form, 'prenom', 'Prénom', 'text', 'Entrez votre prénom.');
   const email = createField(form, 'email', 'Email', 'email', 'Exemple : nom@exemple.com');
@@ -27,7 +25,6 @@ export function initPage(root) {
       pattern: "^(\\+33|0)[1-9](\\d{2}){4}$"
     });
 
-  // Bouton
   const submitBtn = document.createElement('button');
   submitBtn.textContent = "Valider";
   submitBtn.type = "submit";
@@ -36,7 +33,6 @@ export function initPage(root) {
 
   root.append(form);
 
-  // Validation dynamique
   form.addEventListener('input', () => {
     const isValid = form.checkValidity() && password.value === confirmPassword.value;
     submitBtn.disabled = !isValid;
