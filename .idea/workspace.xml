@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ffddfd35-d037-4cd2-b623-9bbc03ed5b42" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/front" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:/Dev/PHP8/php.exe" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="340HXxpdN3FFpt4wa82PqkUphsX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.index.html.executor": "Run",
+    "JavaScript Debug.meat.html.executor": "Run",
+    "JavaScript Debug.petitdejeuner.html.executor": "Run",
+    "JavaScript Debug.shopping.html.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "separation__back__front",
+    "last_opened_file_path": "//wsl.localhost/Ubuntu-22.04/home/nexzo/projets/ListeDeCourse",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="\\wsl.localhost\Ubuntu-22.04\home\nexzo\projets\ListeDeCourse\shopping\petitdejeuner" />
+      <recent name="\\wsl.localhost\Ubuntu-22.04\home\nexzo\projets\ListeDeCourse\assets\css" />
+      <recent name="\\wsl.localhost\Ubuntu-22.04\home\nexzo\projets\ListeDeCourse\assets\img\fruit-vegetable" />
+      <recent name="\\wsl.localhost\Ubuntu-22.04\home\nexzo\projets\ListeDeCourse\assets\img" />
+      <recent name="\\wsl.localhost\Ubuntu-22.04\home\nexzo\projets\ListeDeCourse\assets\img\dairy" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-PS-252.28238.9" />
+        <option value="bundled-php-predefined-a98d8de5180a-58f58c5035b3-com.jetbrains.php.sharedIndexes-PS-252.28238.9" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ffddfd35-d037-4cd2-b623-9bbc03ed5b42" name="Changes" comment="" />
+      <created>1760343612306</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760343612306</updated>
+      <workItem from="1760343613442" duration="13506000" />
+      <workItem from="1760362210013" duration="834000" />
+      <workItem from="1760511873897" duration="21721000" />
+      <workItem from="1760944575428" duration="2000" />
+      <workItem from="1763022321721" duration="5567000" />
+      <workItem from="1763367083571" duration="135000" />
+      <workItem from="1765355876827" duration="328000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
