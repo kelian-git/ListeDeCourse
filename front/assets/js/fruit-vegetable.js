@@ -1,7 +1,7 @@
 // fruit-vegetable.js
 import { addToCart } from './panier.js';
 
-export const IMAGE_BASE_PATH = "../../assets/img/fruit-vegetable/";
+export const IMAGE_BASE_PATH = "assets/img/fruit-vegetable/";
 
 export const listeCourses = [
     { name: "Pommes", price: 2.80, weight: "1kg", image: "pommes.jpg" },

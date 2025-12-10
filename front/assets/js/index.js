@@ -9,7 +9,6 @@ import { addToCart } from './panier.js';
 
 // Fusionner tous les produits
 const allProducts = [...listeCourses,...listeCourses2,...listeCourses3,...listeCourses4,...listeCourses5,...listeCourses6];
-console.log(allProducts)
 
 export function initSearch(container) {
   // --- Création du conteneur de recherche ---
