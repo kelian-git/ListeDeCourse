@@ -7,11 +7,9 @@ import { listeCourses6 } from './petitdejeuner.js';
 
 import { addToCart } from './panier.js';
 
-// Fusionner tous les produits
 const allProducts = [...listeCourses,...listeCourses2,...listeCourses3,...listeCourses4,...listeCourses5,...listeCourses6];
 
 export function initSearch(container) {
-  // --- Création du conteneur de recherche ---
   const searchSection = document.createElement('div');
   searchSection.classList.add('search-container');
 
@@ -22,14 +20,12 @@ export function initSearch(container) {
 
   searchSection.appendChild(searchInput);
 
-  // --- Fenêtre de suggestions flottante ---
   const suggestionBox = document.createElement('div');
   suggestionBox.classList.add('suggestions-box');
   searchSection.appendChild(suggestionBox);
 
   container.appendChild(searchSection);
 
-  // --- Gestion de la recherche dynamique ---
   searchInput.addEventListener('input', () => {
     const query = searchInput.value.toLowerCase();
     suggestionBox.innerHTML = "";
@@ -61,7 +57,6 @@ export function initSearch(container) {
     suggestionBox.style.display = filtered.length > 0 ? "block" : "none";
   });
 
-  // --- Masquer les suggestions si clic en dehors ---
   document.addEventListener('click', (e) => {
     if (!searchSection.contains(e.target)) {
       suggestionBox.style.display = "none";
