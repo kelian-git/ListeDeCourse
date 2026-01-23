@@ -3,6 +3,16 @@
 require_once '../repositories/UserRepository.php';
 
 
+switch($_SERVER['REQUEST_METHOD']){
+    case 'GET':
+        if(isset($_REQUEST['id'])) {
+            // findOne()
+        } else {
+            // findAll()
+        }
+    break;
+}
+
 $data = [
     $_POST['firstname'],
     $_POST['lastname'],

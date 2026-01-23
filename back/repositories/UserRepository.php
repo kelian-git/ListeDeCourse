@@ -2,6 +2,7 @@
 
 require_once '../config/db.php'; // connexion à la BDD
 
+
 class UserRepository
 {
     // $data = ['firstname', 'lastname', 'email', 'password', 'phone']
@@ -26,11 +27,15 @@ class UserRepository
         }
 
         // Lier les paramètres
-        $stmt->bind_param("ssssi", $firstname, $lastname, $email, $password, $phone);
+    $stmt->bindParam(1, $firstname);
+    $stmt->bindParam(2, $lastname);
+    $stmt->bindParam(3, $email);
+    $stmt->bindParam(4, $password);
+    $stmt->bindParam(5, $phone);
 
         // Exécuter et retourner le résultat
         $result = $stmt->execute();
-        $stmt->close();
+        $stmt = null;
 
         return $result;
     }
@@ -39,11 +44,11 @@ class UserRepository
         global $conn;
 
         $stmt = $conn->prepare("SELECT * FROM Users WHERE id = ?");
-        $stmt->bind_param("i", $id);
+        $stmt->bindParam("id", $id, PDO::PARAM_INT);
         $stmt->execute();
-        $result = $stmt->get_result()->fetch_assoc();
-        $stmt->close();
-
+        $result = $stmt->fetch(PDO::FETCH_OBJ);
+        $stmt=null;
+        $_SESSION['firstname'] = $result->firstname;
         return $result;
     }
 
@@ -52,10 +57,14 @@ class UserRepository
 
         $result = $conn->query("SELECT * FROM Users");
         $users = [];
-        while($row = $result->fetch_assoc()) {
+        while($row = $result->fetch(PDO::FETCH_OBJ)) {
             $users[] = $row;
         }
 
         return $users;
     }
 }
+
+$test = new UserRepository();
+var_dump($_REQUEST);
+var_dump($test->findOne($_GET['id']));
