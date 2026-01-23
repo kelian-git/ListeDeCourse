@@ -44,7 +44,7 @@ class UserRepository
         global $conn;
 
         $stmt = $conn->prepare("SELECT * FROM Users WHERE id = ?");
-        $stmt->bindParam("id", $id, PDO::PARAM_INT);
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_OBJ);
         $stmt=null;
@@ -65,6 +65,4 @@ class UserRepository
     }
 }
 
-$test = new UserRepository();
-var_dump($_REQUEST);
-var_dump($test->findOne($_GET['id']));
+

@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription</title>
+  <link rel="stylesheet" href="/assets/css/inscription.css">
 
 </head>
 <body>
-    <main id="app"></main>
+  <div id="root"></div>
+
+  <!-- Charger ton script principal -->
+  <script type="module">
+    import { initPage } from './assets/js/inscription.js'; // chemin vers ton JS
+    const root = document.getElementById('root');
+    initPage(root);
+  </script>
 </body>
 </html>
