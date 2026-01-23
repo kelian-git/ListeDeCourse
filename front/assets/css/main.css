@@ -1,3 +1,210 @@
 @import "index.css";
 @import "shopping.css";
 @import "panier.css";
+
+
+/* ===== Reset & global ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f6f7fb;
+    color: #333;
+}
+
+main#app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ===== Section bienvenue ===== */
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 50px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-container h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.welcome-container h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.welcome-container p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+.welcome-container .redirect-button {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: #fff;
+    color: #2575fc;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.welcome-container .redirect-button:hover {
+    transform: translateY(-3px);
+    background: #e6e6e6;
+}
+
+/* ===== Promotions ===== */
+.promotions {
+    margin-bottom: 50px;
+}
+
+.promotions h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #2575fc;
+}
+
+/* Cartes de promotion */
+.promotions .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.promotions .card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    width: 220px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.promotions .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.promotions .card img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.promotions .card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.promotions .card p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2575fc;
+}
+
+/* ===== Logout button ===== */
+.logout-button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.logout-button button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    background: #f8f9fa;
+    border: 2px solid #ddd;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.logout-button button:hover {
+    background: #ddd;
+}
+
+/* ===== Panier flottant ===== */
+#btnPanier {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+#btnPanier img {
+    width: 35px;
+    height: 35px;
+}
+
+#btnPanier:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+    .welcome-container h1 {
+        font-size: 2.2rem;
+    }
+    .welcome-container h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .welcome-container {
+        padding: 30px 20px;
+        border-radius: 15px;
+    }
+
+    .promotions .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #btnPanier {
+        width: 60px;
+        height: 60px;
+    }
+
+    #btnPanier img {
+        width: 28px;
+        height: 28px;
+    }
+}
