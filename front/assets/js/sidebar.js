@@ -237,7 +237,7 @@ class AppNavbar extends HTMLElement {
       <!-- Sidebar gauche -->
       <nav class="sidebar sidebar-left" id="sidebarLeft">
         <button class="close-btn" id="closeLeft" aria-label="Fermer">&times;</button>
-        <img src="assets/img/logo_4.png" alt="image">
+        <img src="./assets/img/logo_4.png" alt="image">
 
         <!-- IMPORTANT : liens SPA avec data-page -->
         <a class="menu-item" data-page="accueil">Accueil</a>
@@ -257,7 +257,7 @@ class AppNavbar extends HTMLElement {
         <!-- La search bar sera injectée ici -->
         </div>
         <div class="right-section" style="display: flex; gap: 12px;">
-          <span class="item" data-page="connexion">Connexion</span>
+          <span class="item" data-page="connexion">Inscription</span>
           <span class="item" data-page="inscription">Inscription</span>
         </div>
       </header>
